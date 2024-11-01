@@ -6,53 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
+        form {
+            max-width: 400px;
+            margin: 20px auto;
         }
-        
-        h1 {
+
+        div {
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        form[name="form"], div {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form h2, div h1 {
             text-align: center;
-            color: #444;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #218838;
         }
 
         table {
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        th, td {
-            padding: 12px 20px;
-            text-align: left;
+        table th,
+        table td {
+            padding: 10px;
             border-bottom: 1px solid #ddd;
+            text-align: center;
         }
 
-        th {
-            background-color: #0073e6;
+        table input[type="submit"] {
+            padding: 5px 10px;
             color: #fff;
-            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+        table input[type="submit"]:not(.delete) {
+            background-color: #28a745;
         }
 
-        tr:hover {
-            background-color: #e3f2fd;
+        table input[type="submit"]:not(.delete):hover {
+            background-color: #218838;
         }
 
-        td:first-child {
-            font-weight: bold;
-            color: #0073e6;
+        table input[type="submit"].delete {
+            background-color: #dc3545;
+        }
+
+        table input[type="submit"].delete:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
