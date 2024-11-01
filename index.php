@@ -66,7 +66,9 @@
         $taskModel = new TaskModel($db);
         $taskController = new TaskController($taskModel);
 
-        if(isset($_POST['addTaskButton']) || isset($_POST['addData'])) {
+        if (isset($_POST['deleteTaskButton'])) {
+            $taskController->deleteTask($_POST['taskId']);
+        } elseif (isset($_POST['addTaskButton']) || isset($_POST['addData'])) {
             $taskController->addForm();
         } else {
             $taskController->index();

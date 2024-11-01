@@ -21,6 +21,12 @@ class TaskModel {
         $query = "INSERT INTO tasks ('description', 'deadline_date', 'priority') VALUES ('$desc', '$deadline', $priority)";
         $this->db->exec($query);
     }
+
+    public function deleteTask($id) {
+        $query = "DELETE FROM tasks WHERE task_id = $id";
+        $this->db->exec($query);
+    }
+
 }
 
 ?>

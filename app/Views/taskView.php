@@ -16,8 +16,18 @@
             <td><?php echo htmlspecialchars($row['creation_date']); ?></td>
             <td><?php echo htmlspecialchars($row['deadline_date']); ?></td>
             <td><?php echo htmlspecialchars($row['priority']); ?></td>
-            <td><button>Modifykuj</button></td>
-            <td><button>Usun</button></td>
+            <td>
+                <form method="post" action="">
+                    <input type="hidden" name="taskId" value="<?php echo $row['task_id']; ?>">
+                    <input type="submit" name="deleteTaskButton" value="Usuń">
+                </form>
+            </td>
+            <td>
+                <form method="post" action="">
+                    <input type="hidden" name="taskId" value="<?php echo $row['task_id']; ?>">
+                    <input type="submit" name="modifyTaskButton" value="Modyfikuj">
+                </form>
+            </td>
         </tr>
     <?php endforeach; ?>
     </table>

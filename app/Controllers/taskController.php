@@ -14,10 +14,15 @@ class TaskController {
 
     public function addForm() {
         if(isset($_POST['addData'])) {
-            $rows = $this->taskModel->addTask($_POST['description'], $_POST['deadline'], $_POST['priority']);
+            $this->taskModel->addTask($_POST['description'], $_POST['deadline'], $_POST['priority']);
             header('Location: index.php');
         }
         include realpath(__DIR__ . '/../Views/addView.php');
+    }
+
+    public function deleteTask($id) {
+        $this->taskModel->deleteTask($id);
+        header('Location: index.php');
     }
 }
 
