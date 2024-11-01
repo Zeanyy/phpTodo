@@ -68,6 +68,8 @@
 
         if (isset($_POST['deleteTaskButton'])) {
             $taskController->deleteTask($_POST['taskId']);
+        } elseif (isset($_POST['updateTaskButton']) || isset($_POST['updateData'])) {
+            $taskController->updateForm($_POST['taskId']);
         } elseif (isset($_POST['addTaskButton']) || isset($_POST['addData'])) {
             $taskController->addForm();
         } else {

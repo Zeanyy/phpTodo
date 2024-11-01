@@ -7,6 +7,11 @@ class TaskModel {
         $this->db = $db;
     }
 
+    public function addTask($desc, $deadline, $priority) {
+        $query = "INSERT INTO tasks ('description', 'deadline_date', 'priority') VALUES ('$desc', '$deadline', $priority)";
+        $this->db->exec($query);
+    }
+
     public function getAllTasks() {
         $query = "SELECT * FROM tasks";
         $result = $this->db->query($query);
@@ -17,8 +22,14 @@ class TaskModel {
         return $allRows;
     }
 
-    public function addTask($desc, $deadline, $priority) {
-        $query = "INSERT INTO tasks ('description', 'deadline_date', 'priority') VALUES ('$desc', '$deadline', $priority)";
+    public function getSingleTask($id) {
+        $query = "SELECT * FROM tasks WHERE task_id = $id";
+        $result = $this->db->query($query);
+        return $result->fetchArray(SQLITE3_ASSOC);
+    }
+
+    public function updateTask($id, $desc, $deadline, $priority) {
+        $query = "UPDATE tasks SET 'description' = '$desc', 'deadline_date' = '$deadline', 'priority' = $priority WHERE task_id = $id";
         $this->db->exec($query);
     }
 

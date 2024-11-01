@@ -25,7 +25,7 @@
             <td>
                 <form method="post" action="">
                     <input type="hidden" name="taskId" value="<?php echo $row['task_id']; ?>">
-                    <input type="submit" name="modifyTaskButton" value="Modyfikuj">
+                    <input type="submit" name="updateTaskButton" value="Modyfikuj">
                 </form>
             </td>
         </tr>
