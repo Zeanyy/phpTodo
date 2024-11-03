@@ -8,8 +8,12 @@ class TaskModel {
     }
 
     public function addTask($desc, $deadline, $priority) {
-        $query = "INSERT INTO tasks ('description', 'deadline_date', 'priority') VALUES ('$desc', '$deadline', $priority)";
-        $this->db->exec($query);
+        $query = "INSERT INTO tasks ('description', 'deadline_date', 'priority') VALUES (:desc, :deadline, :priority)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':desc', $desc, SQLITE3_TEXT);
+        $stmt->bindValue(':deadline', $deadline, SQLITE3_TEXT);
+        $stmt->bindValue(':priority', $priority, SQLITE3_INTEGER);
+        $stmt->execute();
     }
 
     public function getAllTasks() {
@@ -29,13 +33,27 @@ class TaskModel {
     }
 
     public function updateTask($id, $desc, $deadline, $priority) {
-        $query = "UPDATE tasks SET 'description' = '$desc', 'deadline_date' = '$deadline', 'priority' = $priority WHERE task_id = $id";
-        $this->db->exec($query);
+        $query = "UPDATE tasks SET 'description' = :desc, 'deadline_date' = :deadline, 'priority' = :priority WHERE task_id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':desc', $desc, SQLITE3_TEXT);
+        $stmt->bindValue(':deadline', $deadline, SQLITE3_TEXT);
+        $stmt->bindValue(':priority', $priority, SQLITE3_INTEGER);
+        $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+
+    public function updateCheck($id) {
+        $query = "UPDATE tasks SET 'description' = :desc, 'deadline_date' = :deadline, 'priority' = :priority WHERE task_id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
     }
 
     public function deleteTask($id) {
-        $query = "DELETE FROM tasks WHERE task_id = $id";
-        $this->db->exec($query);
+        $query = "DELETE FROM tasks WHERE task_id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
     }
 
 }

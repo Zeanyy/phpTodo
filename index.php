@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO</title>
     <style>
         form {
             max-width: 400px;
@@ -47,6 +47,17 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+        form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            appearance: none; /* Ukrycie domyślnego stylu */
+            background-color: #fff; /* Tło elementu */
         }
 
         form input[type="submit"] {
@@ -112,23 +123,7 @@
 </head>
 <body>
     <?php
-        require_once realpath( __DIR__ . '/config/config.php');
-        require_once realpath( __DIR__ . '/app/Models/taskModel.php');
-        require_once realpath( __DIR__ . '/app/Controllers/taskController.php');
-    
-        $db = new SQLite3(DB_PATH);
-        $taskModel = new TaskModel($db);
-        $taskController = new TaskController($taskModel);
-
-        if (isset($_POST['deleteTaskButton'])) {
-            $taskController->deleteTask($_POST['taskId']);
-        } elseif (isset($_POST['updateTaskButton']) || isset($_POST['updateData'])) {
-            $taskController->updateForm($_POST['taskId']);
-        } elseif (isset($_POST['addTaskButton']) || isset($_POST['addData'])) {
-            $taskController->addForm();
-        } else {
-            $taskController->index();
-        }
+        require_once realpath(__DIR__ . '/router.php');
     ?>
 </body>
 </html>
