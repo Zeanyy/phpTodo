@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $taskController->updateForm($_POST['taskId']);
                 break;
             case 'updateCheck':
-                $taskController->updateCheckForm($_POST['taskId']);
+                $taskController->updateCheckForm($_POST['taskId'], $_POST['completedCheckBox']);
                 break;
             case 'add':
                 $taskController->addForm();

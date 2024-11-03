@@ -32,9 +32,12 @@ class TaskController {
     }
 
     public function updateCheckForm($id, $completed) {
-        echo ($completed) ? "asdf" : "nie";
-        // $this->taskModel->updateCheck($id, $_POST['completedCheckBox']);
-        // header('Location: index.php');
+        $status = 0;
+        if($completed === "on") {
+            $status = 1;
+        }
+        $this->taskModel->updateCheck($id, $status);
+        header('Location: index.php');
     }
 
     public function deleteTask($id) {

@@ -42,9 +42,10 @@ class TaskModel {
         $stmt->execute();
     }
 
-    public function updateCheck($id) {
-        $query = "UPDATE tasks SET 'description' = :desc, 'deadline_date' = :deadline, 'priority' = :priority WHERE task_id = :id";
+    public function updateCheck($id, $status) {
+        $query = "UPDATE tasks SET 'completed' = :status WHERE task_id = :id";
         $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':status', $status, SQLITE3_INTEGER);
         $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
         $stmt->execute();
     }
