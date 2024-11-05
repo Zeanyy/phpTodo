@@ -24,7 +24,7 @@ function getPriority($priority) {
 
     <form method="post" action="">
         <input type="hidden" name="action" value="add">
-        <input type="submit" name="addTaskButton" value="Dodaj zadanie" />
+        <input type="submit" name="addTaskButton" value="Dodaj zadanie">
     </form>
 
     <?php if (!empty($rows)): ?>
@@ -75,6 +75,6 @@ function getPriority($priority) {
             </tbody>
         </table>
     <?php else: ?>
-        <h1>Nie ma zadań. :c</h1>
+        <h1>Nie ma zadan :D</h1>
     <?php endif; ?>
 </div>
