@@ -4,15 +4,15 @@ Projekt wykorzystuje wzorzec architektoniczny MVC (Model-View-Controller), co po
 Celem aplikacji jest umożliwienie użytkownikom dodawania, usuwania i edytowania zadań w prostym interfejsie. 
 Jest to przykład aplikacji CRUD (Create, Read, Update, Delete) zbudowanej w czystym PHP bez użycia frameworków.
 
-# Funkcjonalności:
--Dodawanie nowych zadań
--Edycja istniejących zadań
--Usuwanie zadań
--Przeglądanie listy zadań
+## Funkcjonalności:
+- Dodawanie nowych zadań
+- Edycja istniejących zadań
+- Usuwanie zadań
+- Przeglądanie listy zadań
 
-# Technologie
-PHP – backend
-HTML/CSS – frontend
+## Technologie
+- PHP – backend
+- HTML/CSS – frontend
 
-# Autor: 
+## Autor: 
 Projekt stworzony przez Kacpera Zięba.
